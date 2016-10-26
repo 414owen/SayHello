@@ -7,12 +7,13 @@ while true; do
 	loggedon="$(ps aux | grep pts | grep sshd | grep -v "grep" | sed "s/ .*//g")"
 	for person in $people; do
 		user="$(echo "$person" | sed "s/ .*//g")"
-		#echo $user
+		echo "Checking if $user is logged on"
 		#echo "$message"
 		for loggedonuser in $loggedon; do
+			echo "checking against $loggedonuser"
 			if [ "$loggedonuser" = "$user" ]; then
 				message="$(echo "$person" | sed -E 's/.*"(.*)"/\1/g')"
-				echo "found $user, sending this:\n$message"
+				echo "found ${user}, sending this:\n${message}"
 				echo "$message" | write "$loggedonuser" 
 			fi
 		done
