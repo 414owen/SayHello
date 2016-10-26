@@ -10,10 +10,10 @@ while true; do
 		#echo $user
 		#echo "$message"
 		for loggedonuser in $loggedon; do
-			if [ "$loggedinuser" = "$user" ]; then
+			if [ "$loggedonuser" = "$user" ]; then
 				message="$(echo "$person" | sed -E 's/.*"(.*)"/\1/g')"
 				echo "found $user, sending this:\n$message"
-				echo "$message" | write "$loggedinuser" 
+				echo "$message" | write "$loggedonuser" 
 			fi
 		done
 	done
