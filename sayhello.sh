@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 IFS=$'\n'
-people=$(cat users)
+people=$(cat messages)
 touch /tmp/lastloggedon
 
 while true; do
