@@ -18,7 +18,6 @@ while true; do
 			fi
 		done
 	done
-	rm /tmp/lastloggedon
 	mv /tmp/loggedon /tmp/lastloggedon
 	lastloggedon=${loggedon}
 	sleep 1
