@@ -2,7 +2,8 @@
 
 IFS=$'\n'
 people=$(cat messages)
-touch /tmp/lastloggedon
+# So it doesn't think everyone's new when the script is started
+ps aux | grep pts | grep sshd | grep -v "grep" | sed "s/ .*//g" > /tmp/lastloggedon
 
 while true; do
 	ps aux | grep pts | grep sshd | grep -v "grep" | sed "s/ .*//g" > /tmp/loggedon
